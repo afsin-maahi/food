@@ -3,15 +3,21 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>SE</groupId>
   <artifactId>Food-System</artifactId>
-  <packing>war</packing>
+  <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>FoodSystem Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
-      <artifactId>as</artifactId>
+      <artifactId>junit</artifactId>
+      <version>4.6</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+     <groupId>mysql</groupId>
+     <artifactId>mysql-connector-java</artifactId>
+     <version>8.0.33</version>
     </dependency>
   </dependencies>
   <build>
