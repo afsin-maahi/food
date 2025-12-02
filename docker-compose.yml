@@ -19,3 +19,14 @@ services:
       - mongo_data:/data/db
 volumes:
   mongo_data:
+
+
+# version: '3.8'
+
+# services:
+#   webapp:
+#     build: .
+#     container_name: mywebapp-container
+#     ports:
+#       - "7007:8080"
+#     restart: always
