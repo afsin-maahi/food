@@ -1,24 +1,47 @@
-services:
-  campusmgmtsystem:
-    image: afsindocker123/dock:01
-    container_name: fs
-    ports:
-      - "7079:8080"
-    depends_on:
-      - mongodb
-    environment:
-      MONGO_URL: "mongodb://mongodb:27017/campusdb"
+version: '3.8'
 
-  mongodb:
-    image: mongo:6.0
-    container_name: campus_mongo
+services:
+  webapp:
+    build: .
+    container_name: app-container
+    ports:
+      - "7007:8080"
     restart: always
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:5
+    container_name: mongo-container
     ports:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+
 volumes:
   mongo_data:
+
+# services:
+#   campusmgmtsystem:
+#     image: afsindocker123/dock:01
+#     container_name: fs
+#     ports:
+#       - "7079:8080"
+#     depends_on:
+#       - mongodb
+#     environment:
+#       MONGO_URL: "mongodb://mongodb:27017/campusdb"
+
+#   mongodb:
+#     image: mongo:6.0
+#     container_name: campus_mongo
+#     restart: always
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongo_data:/data/db
+# volumes:
+#   mongo_data:
 
 
 # version: '3.8'
@@ -30,3 +53,20 @@ volumes:
 #     ports:
 #       - "7007:8080"
 #     restart: always
+
+
+
+  # mysql:
+  #   image: mysql:8
+  #   container_name: mysql-container
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: mydb
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
+
+# volumes:
+#   mysql_data:
+
